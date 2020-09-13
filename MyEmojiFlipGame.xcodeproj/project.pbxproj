@@ -18,6 +18,7 @@
 		CCA05B7F250D79C300889645 /* Array+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA05B7E250D79C300889645 /* Array+Identifiable.swift */; };
 		CCA05B81250D79FD00889645 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA05B80250D79FD00889645 /* Grid.swift */; };
 		CCA05B83250D869500889645 /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA05B82250D869500889645 /* GridLayout.swift */; };
+		CCCE3F66250ED6BF001A50EB /* Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCE3F65250ED6BF001A50EB /* Pie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		CCA05B7E250D79C300889645 /* Array+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Identifiable.swift"; sourceTree = "<group>"; };
 		CCA05B80250D79FD00889645 /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		CCA05B82250D869500889645 /* GridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
+		CCCE3F65250ED6BF001A50EB /* Pie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,15 +68,16 @@
 		CCA05B65250D235F00889645 /* MyEmojiFlipGame */ = {
 			isa = PBXGroup;
 			children = (
-				CCA05B66250D235F00889645 /* AppDelegate.swift */,
-				CCA05B68250D235F00889645 /* SceneDelegate.swift */,
 				CCA05B6A250D235F00889645 /* View.swift */,
-				CCA05B80250D79FD00889645 /* Grid.swift */,
-				CCA05B82250D869500889645 /* GridLayout.swift */,
 				CCA05B7C250D399400889645 /* ViewModel.swift */,
 				CCA05B7A250D398A00889645 /* Model.swift */,
+				CCCE3F65250ED6BF001A50EB /* Pie.swift */,
 				CCA05B7E250D79C300889645 /* Array+Identifiable.swift */,
+				CCA05B80250D79FD00889645 /* Grid.swift */,
+				CCA05B82250D869500889645 /* GridLayout.swift */,
 				CCA05B6C250D236100889645 /* Assets.xcassets */,
+				CCA05B66250D235F00889645 /* AppDelegate.swift */,
+				CCA05B68250D235F00889645 /* SceneDelegate.swift */,
 				CCA05B71250D236100889645 /* LaunchScreen.storyboard */,
 				CCA05B74250D236100889645 /* Info.plist */,
 				CCA05B6E250D236100889645 /* Preview Content */,
@@ -164,6 +167,7 @@
 				CCA05B7D250D399400889645 /* ViewModel.swift in Sources */,
 				CCA05B67250D235F00889645 /* AppDelegate.swift in Sources */,
 				CCA05B69250D235F00889645 /* SceneDelegate.swift in Sources */,
+				CCCE3F66250ED6BF001A50EB /* Pie.swift in Sources */,
 				CCA05B6B250D235F00889645 /* View.swift in Sources */,
 				CCA05B7B250D398A00889645 /* Model.swift in Sources */,
 				CCA05B81250D79FD00889645 /* Grid.swift in Sources */,

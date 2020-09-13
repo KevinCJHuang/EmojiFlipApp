@@ -29,9 +29,12 @@ struct CardView: View {
                 if self.card.isFaceUp {
                     RoundedRectangle(cornerRadius: self.cornerRadiusConst).fill(Color.white)
                     RoundedRectangle(cornerRadius: self.cornerRadiusConst).stroke(lineWidth: self.edgeLineWidth) // stroke is a function call
+                    Pie(startAngle: Angle.degrees(0), endAngle: Angle.degrees(110), clockwise: true)
                     Text(self.card.content)
                 } else {
-                    RoundedRectangle(cornerRadius: self.cornerRadiusConst).fill()
+                    if !self.card.isMatched {
+                        RoundedRectangle(cornerRadius: self.cornerRadiusConst).fill()
+                    }
                 }
             }
             .font(Font.system(size: self.fontSize(for: geometry.size)))
