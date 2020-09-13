@@ -10,12 +10,12 @@ import Foundation
 
 
 extension Array where Element: Identifiable {
-    func findIndex(lookingFor: Element) -> Int {
+    func findIndex(lookingFor: Element) -> Int? { // return type is Optional
         for i in 0..<self.count {
             if self[i].id == lookingFor.id {
                 return i
             }
         }
-        return -1;
+        return nil;
     }
 }

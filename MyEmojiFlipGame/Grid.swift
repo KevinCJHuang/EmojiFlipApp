@@ -20,7 +20,7 @@ struct Grid<Item, ItemView>: View where Item: Identifiable, ItemView: View{
     var body: some View {
         GeometryReader{ geometry in
             ForEach (0..<self.items.count){ index in
-                return self.AllocateSpace(layout: GridLayout(itemCount: self.items.count, in: geometry.size), item:self.items[index],index:index)
+                 self.AllocateSpace(layout: GridLayout(itemCount: self.items.count, in: geometry.size), item:self.items[index],index:index)
             }
         }
     }
