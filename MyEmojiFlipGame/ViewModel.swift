@@ -12,7 +12,7 @@ class ViewModel: ObservableObject {
     @Published private var model: Model<String> = ViewModel.createModel()
     
     static func createModel() -> Model<String> {
-        let emojis: Array<String> = ["👻", "🎃", "🕷"]
+        let emojis: Array<String> = ["⚽️","🏀","🏈","⚾️","🎾","🏐","🏉","🎱","🏓","🪀"]
         return Model<String> (numberOfPairs: emojis.count) { i in
             return emojis [i]
         }
@@ -26,5 +26,10 @@ class ViewModel: ObservableObject {
     func choose (card: Model<String>.Card) {
         return model.choose(card:card)
     }
+    
+    func resetGame() {
+        model = ViewModel.createModel()
+    }
+    
 }
 

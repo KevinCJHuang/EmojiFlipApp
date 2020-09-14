@@ -11,51 +11,71 @@ import SwiftUI
 struct ContentView: View {
     @ObservedObject var viewModel: ViewModel
     var body: some View {
-        return Grid (items: viewModel.cards) { card in
-            return CardView (card: card).onTapGesture{
-                self.viewModel.choose(card:card)
+        VStack {
+            Grid (items: viewModel.cards) { card in
+                CardView (card: card).onTapGesture{
+                    withAnimation(.linear(duration: 0.75)) {
+                        self.viewModel.choose(card:card)
+                    }
+                }
+                .padding(5)
             }
-            .padding(5)
+                .foregroundColor(Color.orange)
+                .padding()
+            Button (action: {
+                withAnimation(.easeInOut(duration: 0.5)) {
+                    self.viewModel.resetGame()
+                }
+            }, label: {Text("New Game")})
         }
-        .foregroundColor(Color.orange)
     }
 }
 
 struct CardView: View {
     var card: Model<String>.Card
+    @State private var animatedBonusRemaining: Double = 0
+
+    private func startBonusTimeAnimation () {
+        animatedBonusRemaining = card.bonusRemaining
+        withAnimation(.linear(duration: card.bonusTimeRemaining)) {
+            animatedBonusRemaining = 0
+        }
+    }
+    
     var body: some View {
         GeometryReader { geometry in
-            ZStack {
-                if self.card.isFaceUp {
-                    RoundedRectangle(cornerRadius: self.cornerRadiusConst).fill(Color.white)
-                    RoundedRectangle(cornerRadius: self.cornerRadiusConst).stroke(lineWidth: self.edgeLineWidth) // stroke is a function call
-                    Pie(startAngle: Angle.degrees(0), endAngle: Angle.degrees(110), clockwise: true)
-                    Text(self.card.content)
-                } else {
-                    if !self.card.isMatched {
-                        RoundedRectangle(cornerRadius: self.cornerRadiusConst).fill()
+            if self.card.isFaceUp || !self.card.isMatched {
+                ZStack { // stack of multiple views; a function that takes no argument
+                    Group {
+                        if self.card.isConsumingBonusTime {
+                            Pie(startAngle: Angle.degrees(-90), endAngle: Angle.degrees(-self.animatedBonusRemaining*360-90), clockwise: true)
+                                .onAppear {
+                                    self.startBonusTimeAnimation()
+                                }
+                        } else {
+                            Pie(startAngle: Angle.degrees(-90), endAngle: Angle.degrees(-self.card.bonusRemaining*360-90), clockwise: true)
+                        }
                     }
+                        .padding(5).opacity(0.4)
+                        .transition(.identity)
+                    Text(self.card.content)
+                        .font(Font.system(size: self.fontSize(for: geometry.size)))
+                        .rotationEffect(Angle.degrees (self.card.isMatched ? 360 : 0))
+                        .animation(self.card.isMatched ? Animation.linear(duration: 1).repeatForever(autoreverses: false) : .default)
                 }
+                //.modifier(Cardify(isFaceUp: card.isFaceUp))
+                    .cardify(isFaceUp: self.card.isFaceUp)
+                    .transition(AnyTransition.scale)
             }
-            .font(Font.system(size: self.fontSize(for: geometry.size)))
         }
     }
     
     // MARK: - Constants
-
-    let cornerRadiusConst: CGFloat = 10.0
-    let edgeLineWidth: CGFloat = 3
+    
     func fontSize(for size: CGSize) -> CGFloat {
         min(size.width, size.height) * 0.75
     }
 }
-
-
-
-
-
-
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
