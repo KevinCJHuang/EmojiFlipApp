@@ -8,8 +8,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct Pie: Shape {
     var startAngle: Angle
     var endAngle: Angle

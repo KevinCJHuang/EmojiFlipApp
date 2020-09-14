@@ -11,8 +11,8 @@ import Foundation
 struct Model<CardContent> where CardContent: Equatable{
     var cards : Array <Card>
     
+//    var firstFaceUpCard: Int?
     var firstFaceUpCard: Int?
-    
     // Intent Function
 
     mutating func choose (card: Card) {
