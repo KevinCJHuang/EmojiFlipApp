@@ -26,4 +26,16 @@ Cardify is an AnimatableModifier (ViewModifier + Animatable) in Cardify.swift. I
 
 The Cardify viewModifier also contains an animation, which creates the "card flip" effect as shown in the demo gif.
 
+### Shape & Animation
+As you may notice, when a card is clicked and flipped back, there is a pie-shaped countdown animation. As mentioned above, the animation is used to track bonus time for bonus mark rewards. There was originally no "pie shape" in SwiftUI, and certainly no "countdown" animation. I have implemented both in order to achieve this countdown feature.
+
 ## Design
+
+### Enum Type
+To implement safe codes, I have used the Enum types at several places where in the perspective of programming language grammar, a function may return nil. I have also uses keywords such as "if let" to safely unwrap the Enum Type and take its value. Although there should be no change that this app actually encounters such behaviour, it is a good practice to use Enum whenever you can.
+
+### Low Coupling, High Cohesion
+Low Coupling and High Cohesion is an important principle in software development. In this app, I have achieved (unnecessarily) high cohesion by modularizating everything I can, which results in the Cardify ViewModifer, the Pie shape animation, and the grid view. It is probably unlikely that I will use them in my future projects, but again it's very good and necessary practice to maintain low coupling of your codes.
+
+## Next Steps
+In my opinion, this app is only a prototype and has many opportunities for improvement. Firstly, there is only one ball theme for the game right now. I could add a selection page for users to choose for more themes. Secondly, although there is a bonus mark trackdown feature, I have not yet implemented the mark tracking feature due scheduling issues. I am looking forward to take some time in the future and finish this app up, probably in December 2020, after the exams.
