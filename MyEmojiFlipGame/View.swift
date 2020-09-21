@@ -78,38 +78,6 @@ struct CardView: View {
         }
     }
     
-    
-    
-    
-//    @ViewBuilder
-//    var body: some View {
-//        GeometryReader { geometry in
-//            if self.card.isFaceUp || !self.card.isMatched {
-//                ZStack { // stack of multiple views; a function that takes no argument
-//                    Group {
-//                        if self.card.isConsumingBonusTime {
-//                            Pie(startAngle: Angle.degrees(-90), endAngle: Angle.degrees(-self.animatedBonusRemaining*360-90), clockwise: true)
-//                                .onAppear {
-//                                    self.startBonusTimeAnimation()
-//                                }
-//                        } else {
-//                            Pie(startAngle: Angle.degrees(-90), endAngle: Angle.degrees(-self.card.bonusRemaining*360-90), clockwise: true)
-//                        }
-//                    }
-//                        .padding(5).opacity(0.4)
-//                        .transition(.identity)
-//                    Text(self.card.content)
-//                        .font(Font.system(size: self.fontSize(for: geometry.size)))
-//                        .rotationEffect(Angle.degrees (self.card.isMatched ? 360 : 0))
-//                        .animation(self.card.isMatched ? Animation.linear(duration: 1).repeatForever(autoreverses: false) : .default)
-//                }
-//                //.modifier(Cardify(isFaceUp: card.isFaceUp))
-//                    .cardify(isFaceUp: self.card.isFaceUp)
-//                    .transition(AnyTransition.scale)
-//            }
-//        }
-//    }
-    
     // MARK: - Constants
     
     func fontSize(for size: CGSize) -> CGFloat {
